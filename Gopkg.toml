@@ -1,7 +1,13 @@
-[[constraint]]
-  name = "go.uber.org/zap"
-  version = "1.7.1"
+# tools
+required = [
+  # "github.com/golang/protobuf/protoc-gen-go",
+  "github.com/gogo/protobuf/protoc-gen-gogofast",
+  "gopkg.in/reform.v1/reform",
+  "github.com/mwitkow/go-proto-validators/protoc-gen-govalidators"
+  # "github.com/golangci/golangci-lint/cmd/golangci-lint"
+]
 
-[[constraint]]
-  branch = "v2"
-  name = "gopkg.in/urfave/cli.v2"
+[prune]
+  # non-go = true
+  go-tests = true
+  unused-packages = true

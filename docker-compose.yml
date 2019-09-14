@@ -1,0 +1,20 @@
+---
+version: '3'
+services:
+  postgres:
+    image: postgres:11
+    command: -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.max=10000 -c pg_stat_statements.track=all
+    environment:
+      - TZ=UTC
+      - POSTGRES_DB=zapisano
+      - POSTGRES_USER=zapisano
+      - POSTGRES_PASSWORD=zapisano
+    ports:
+      - 5432:5432
+
+  consul:
+    image: consul:1.4
+    environment:
+      - CONSUL_UI_BETA=true
+    ports:
+      - 8500:8500
